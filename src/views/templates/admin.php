@@ -15,7 +15,7 @@
 			<!-- ko if: actionPermissions.create -->
 				<a class="new_item"
 					data-bind="attr: {href: base_url + modelName() + '/new'},
-								text: '<?php echo trans('administrator::administrator.new') ?> ' + modelSingle()"></a>
+								text:  modelSingle() + '<?php echo trans('administrator::administrator.new') ?> '"></a>
 			<!-- /ko -->
 		</div>
 

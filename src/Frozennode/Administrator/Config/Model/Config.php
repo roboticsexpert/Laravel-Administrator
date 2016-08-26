@@ -340,7 +340,8 @@ class Config extends ConfigBase implements ConfigInterface
             if (!$field->getOption('external') && $field->getOption('editable')) {
                 $type = $field->getOption('type');
                 if ($type == 'image' || $type == 'file') {
-                    $value = $field->getOption('location') . $value;
+                    if (!empty($value))
+                        $value = $field->getOption('location') . $value;
                 }
                 $field->fillModel($model, $value);
             } //if this is an "external" field (i.e. it's not a column on this model's table) or uneditable, unset it
