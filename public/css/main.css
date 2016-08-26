@@ -2021,4 +2021,9 @@ a {
   
 }
 
+.select2-focusser.select2-offscreen
+{
+  display: none;
+}
+
 /* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */
