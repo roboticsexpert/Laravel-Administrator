@@ -1,4 +1,4 @@
-# Laravel Administrator
+# Laravel Administrator (Legacy Version)
 
 Administrator is an administrative interface builder for [Laravel](http://laravel.com). With Administrator you can visually manage your Eloquent models and their relations, and also create stand-alone settings pages for storing site data and performing site tasks.
 
@@ -6,11 +6,23 @@ Administrator is an administrative interface builder for [Laravel](http://larave
 - **Website:** [http://frozennode.com](http://administrator.frozennode.com/)
 - **Version:** 5.0.12
 
-[![Build Status](https://travis-ci.org/FrozenNode/Laravel-Administrator.png?branch=master)](https://travis-ci.org/FrozenNode/Laravel-Administrator)
+Legacy Version
+
+- **Author:** Antonio Dal Sie
+- **Website:** [http://antoniodalsie.com](http://antoniodalsie.com/)
+- **Version:** 5.4
+
+[![Build Status](https://travis-ci.org/exodusanto/Laravel-Admin.svg?branch=master)](https://travis-ci.org/exodusanto/Laravel-Admin)
 
 <img src="https://raw.github.com/FrozenNode/Laravel-Administrator/master/examples/images/overview.jpg" />
 
 ## Composer
+
+To install Administrator as a Composer package to be used with Laravel 5.4, simply run:
+
+```sh
+composer require "exodusanto/administrator: 5.4.*"
+```
 
 To install Administrator as a Composer package to be used with Laravel 5, simply run:
 
@@ -22,7 +34,7 @@ Once it's installed, you can register the service provider in `config/app.php` i
 
 ```php
 'providers' => [
-	'Frozennode\Administrator\AdministratorServiceProvider',
+    'Frozennode\Administrator\AdministratorServiceProvider',
 ]
 ```
 
@@ -46,8 +58,8 @@ Since Administrator has switched over to Composer, you can no longer use `php ar
 
 ```php
 'administrator' => array(
-	'handles' => 'admin', //this determines what URI this bundle will use
-	'auto' => true,
+    'handles' => 'admin', //this determines what URI this bundle will use
+    'auto' => true,
 ),
 ```
 
@@ -62,6 +74,18 @@ Administrator is released under the MIT License. See the LICENSE file for detail
 
 
 ## Recent Changelog
+
+### 5.4.0
+- Added: New layout
+- Added: Laravel 5.4 compatibility
+- Added: Title config String or Closure
+- Added: Favicon (png only) config String or Closure
+- Added: ENUM config Array or Closure
+- Added: New ckeditor layout
+- Added: Images config:
+    - **Test** resize: prevent stretch of image
+    - **Incremental** naming: name*_n* if already exist
+- Bugfix: wysiwyg loading on settings
 
 ### 5.0.12
 - Bugfix: Added the table name to the constraint query
