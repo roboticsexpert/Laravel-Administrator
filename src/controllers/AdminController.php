@@ -177,7 +177,7 @@ class AdminController extends Controller {
 		$config = app('itemconfig');
 		$actionFactory = app('admin_action_factory');
 		$baseModel = $config->getDataModel();
-		$model = $baseModel::find($id);
+		$model = $baseModel::withoutGlobalScopes()->find($id);
 		$errorResponse = array(
 			'success' => false,
 			'error' => "There was an error deleting this item. Please reload the page and try again.",
