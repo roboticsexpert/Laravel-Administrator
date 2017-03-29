@@ -626,7 +626,7 @@ class Factory {
 	 * Filters a relationship options query by a search term
 	 *
 	 * @param mixed										$term
-	 * @param \Illuminate\Database\Query\Builder		$query
+	 * @param \Illuminate\Database\Eloquent\Builder		$query
 	 * @param \Frozennode\Administrator\Fields\Field	$fieldObject
 	 * @param array										$selectedItems
 	 * @param string									$relatedKeyTable
@@ -677,7 +677,7 @@ class Factory {
 	/**
 	 * Takes the supplied $selectedItems mixed value and formats it to a usable array
 	 *
-	 * @param \Illuminate\Database\Query\Builder		$query
+	 * @param \Illuminate\Database\Eloquent\Builder		$query
 	 * @param array										$selectedItems
 	 * @param \Frozennode\Administrator\Fields\Field	$fieldObject
 	 * @param string									$relatedKeyTable
@@ -704,7 +704,7 @@ class Factory {
 	 * Takes the supplied $selectedItems mixed value and formats it to a usable array
 	 *
 	 * @param mixed										$constraints
-	 * @param \Illuminate\Database\Query\Builder		$query
+	 * @param \Illuminate\Database\Eloquent\Builder		$query
 	 * @param \Frozennode\Administrator\Fields\Field	$fieldObject
 	 *
 	 * @return array

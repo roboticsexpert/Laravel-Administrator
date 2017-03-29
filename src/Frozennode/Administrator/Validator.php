@@ -127,7 +127,7 @@ class Validator extends \Illuminate\Validation\Validator {
 	public function isJoined($query, $table)
 	{
 		$tableFound = false;
-		$query = is_a($query, 'Illuminate\Database\Query\Builder') ? $query : $query->getQuery();
+		$query = is_a($query, 'Illuminate\Database\Eloquent\Builder') ? $query : $query->getQuery();
 
 		if ($query->joins)
 		{

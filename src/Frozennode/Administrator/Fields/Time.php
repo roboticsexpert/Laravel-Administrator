@@ -1,7 +1,7 @@
 <?php
 namespace Frozennode\Administrator\Fields;
 
-use Illuminate\Database\Query\Builder as QueryBuilder;
+use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use DateTime as DateTime;
 
 class Time extends Field {
@@ -30,7 +30,7 @@ class Time extends Field {
 	/**
 	 * Filters a query object
 	 *
-	 * @param \Illuminate\Database\Query\Builder	$query
+	 * @param \Illuminate\Database\Eloquent\Builder	$query
 	 * @param array									$selects
 	 *
 	 * @return void

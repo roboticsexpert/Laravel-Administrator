@@ -1,7 +1,7 @@
 <?php
 namespace Frozennode\Administrator\Fields\Relationships;
 
-use Illuminate\Database\Query\Builder as QueryBuilder;
+use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 
 class BelongsTo extends Relationship {
 
@@ -52,7 +52,7 @@ class BelongsTo extends Relationship {
 	/**
 	 * Filters a query object with this item's data given a model
 	 *
-	 * @param \Illuminate\Database\Query\Builder	$query
+	 * @param \Illuminate\Database\Eloquent\Builder	$query
 	 * @param array									$selects
 	 *
 	 * @return void

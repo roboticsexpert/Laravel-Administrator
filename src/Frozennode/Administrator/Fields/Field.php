@@ -4,7 +4,7 @@ namespace Frozennode\Administrator\Fields;
 use Frozennode\Administrator\Validator;
 use Frozennode\Administrator\Config\ConfigInterface;
 use Illuminate\Database\DatabaseManager as DB;
-use Illuminate\Database\Query\Builder as QueryBuilder;
+use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 
 abstract class Field {
 
@@ -190,7 +190,7 @@ abstract class Field {
 	/**
 	 * Filters a query object given
 	 *
-	 * @param \Illuminate\Database\Query\Builder	$query
+	 * @param \Illuminate\Database\Eloquent\Builder	$query
 	 * @param array									$selects
 	 *
 	 * @return void

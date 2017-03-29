@@ -1,7 +1,7 @@
 <?php
 namespace Frozennode\Administrator\Fields;
 
-use Illuminate\Database\Query\Builder as QueryBuilder;
+use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 
 class Enum extends Field {
 
@@ -72,7 +72,7 @@ class Enum extends Field {
 	/**
 	 * Filters a query object
 	 *
-	 * @param \Illuminate\Database\Query\Builder	$query
+	 * @param \Illuminate\Database\Eloquent\Builder	$query
 	 * @param array									$selects
 	 *
 	 * @return void

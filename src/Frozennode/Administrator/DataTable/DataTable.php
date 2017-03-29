@@ -4,7 +4,7 @@ namespace Frozennode\Administrator\DataTable;
 use Frozennode\Administrator\Config\ConfigInterface;
 use Frozennode\Administrator\DataTable\Columns\Factory as ColumnFactory;
 use Frozennode\Administrator\Fields\Factory as FieldFactory;
-use Illuminate\Database\Query\Builder as QueryBuilder;
+use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Illuminate\Database\DatabaseManager as DB;
 
 class DataTable {
@@ -118,12 +118,16 @@ class DataTable {
 		$keyName = $model->getKeyName();
 		$query = $model->groupBy($table . '.' . $keyName);
 
-		//get the Illuminate\Database\Query\Builder instance and set up the count query
-		$dbQuery = $query->getQuery();
-		$countQuery = $dbQuery->getConnection()->table($table)->groupBy($table . '.' . $keyName);
+		//get the Illuminate\Database\Eloquent\Builder instance and set up the count query
+		$dbQuery = $query;
+
+
+		$countQuery = $dbQuery->groupBy($table . '.' . $keyName);
 
 		//run the supplied query filter for both queries if it was provided
+
 		$this->config->runQueryFilter($dbQuery);
+
 		$this->config->runQueryFilter($countQuery);
 
 		//set up initial array states for the selects
@@ -181,7 +185,7 @@ class DataTable {
 	/**
 	 * Performs the count query and returns info about the pages
 	 *
-	 * @param \Illuminate\Database\Query\Builder	$countQuery
+	 * @param \Illuminate\Database\Eloquent\Builder	$countQuery
 	 * @param string								$querySql
 	 * @param array									$queryBindings
 	 * @param int									$page
@@ -214,8 +218,8 @@ class DataTable {
 	 * Sets the query filters when getting the rows
 	 *
 	 * @param mixed									$filters
-	 * @param \Illuminate\Database\Query\Builder	$query
-	 * @param \Illuminate\Database\Query\Builder	$countQuery
+	 * @param \Illuminate\Database\Eloquent\Builder	$query
+	 * @param \Illuminate\Database\Eloquent\Builder	$countQuery
 	 * @param array									$selects
 	 */
 	public function setFilters($filters, QueryBuilder &$query, QueryBuilder &$countQuery, &$selects)

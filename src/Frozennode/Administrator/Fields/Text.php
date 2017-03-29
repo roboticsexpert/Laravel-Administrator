@@ -1,7 +1,7 @@
 <?php
 namespace Frozennode\Administrator\Fields;
 
-use Illuminate\Database\Query\Builder as QueryBuilder;
+use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 
 class Text extends Field {
 
@@ -28,7 +28,7 @@ class Text extends Field {
 	/**
 	 * Filters a query object given
 	 *
-	 * @param \Illuminate\Database\Query\Builder	$query
+	 * @param \Illuminate\Database\Eloquent\Builder	$query
 	 * @param array									$selects
 	 *
 	 * @return void
