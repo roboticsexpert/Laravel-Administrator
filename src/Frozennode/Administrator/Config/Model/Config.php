@@ -117,11 +117,12 @@ class Config extends ConfigBase implements ConfigInterface
         $originalModel = $model = $this->getDataModel();
 
         //get the model by id
-        $model = $model->find($id);
+        $model = $model->newQueryWithoutScopes()->find($id);
         $model = $model ? $model : $originalModel;
 
         //if the model exists, load up the existing related items
         if ($model->exists) {
+
             $this->setExtraModelValues($fields, $model);
         }
 
@@ -240,23 +241,23 @@ class Config extends ConfigBase implements ConfigInterface
         }
     }
 
-	/**
-	 * Updates a model with the latest permissions, links, and fields
-	 *
-	 * @param \Illuminate\Database\Eloquent\Model		$model
-	 * @param \Frozennode\Administrator\Fields\Factory	$fieldFactory
-	 * @param \Frozennode\Administrator\Actions\Factory	$actionFactory
-	 *
-	 * @return \Illuminate\Database\Eloquent\Model
-	 */
-	public function updateModel($model, FieldFactory $fieldFactory, ActionFactory $actionFactory, $id = null)
-	{
-		//set the data model to the active model
-		if($id != null){
-			$this->setDataModel($model->find($id));
-		}else{
-			$this->setDataModel($model->find($model->getKey()));
-		}
+    /**
+     * Updates a model with the latest permissions, links, and fields
+     *
+     * @param \Illuminate\Database\Eloquent\Model $model
+     * @param \Frozennode\Administrator\Fields\Factory $fieldFactory
+     * @param \Frozennode\Administrator\Actions\Factory $actionFactory
+     *
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function updateModel($model, FieldFactory $fieldFactory, ActionFactory $actionFactory, $id = null)
+    {
+        //set the data model to the active model
+        if ($id != null) {
+            $this->setDataModel($model->find($id));
+        } else {
+            $this->setDataModel($model->find($model->getKey()));
+        }
 
         //include the item link if one was supplied
         if ($link = $this->getModelLink()) {
@@ -266,11 +267,11 @@ class Config extends ConfigBase implements ConfigInterface
         //set up the model with the edit fields new data
         $model->setAttribute('administrator_edit_fields', $fieldFactory->getEditFieldsArrays(true));
 
-		//set up the new actions data
-		$model->setAttribute('administrator_actions', $actionFactory->getActionsOptions(true));
-		$model->setAttribute('administrator_action_permissions', $actionFactory->getActionPermissions(true));
-		return $model;
-	}
+        //set up the new actions data
+        $model->setAttribute('administrator_actions', $actionFactory->getActionsOptions(true));
+        $model->setAttribute('administrator_action_permissions', $actionFactory->getActionPermissions(true));
+        return $model;
+    }
 
     /**
      * Saves the model
@@ -284,7 +285,7 @@ class Config extends ConfigBase implements ConfigInterface
      */
     public function save(\Illuminate\Http\Request $input, array $fields, array $actionPermissions = null, $id = 0)
     {
-        $model = $this->getDataModel()->find($id);
+        $model = $this->getDataModel()->newQueryWithoutScopes()->find($id);
 
         //fetch the proper model so we don't have to deal with any extra attributes
         if (!$model) {
